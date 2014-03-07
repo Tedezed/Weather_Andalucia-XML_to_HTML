@@ -53,7 +53,7 @@ while ncapital <= 7:
 
 Plantilla_sal = Plantilla.render(capitalh=capital,centh=list_cent,centmaxh=list_centmax,
 	vspeedh=list_vspeed,vdirech=list_vdirec)
-archi=open('Plantilla_sal.html','w')
+archi = open('Plantilla_sal.html','w')
 archi.write(Plantilla_sal)
 archi.close()
 webbrowser.open("Plantilla_sal.html")
