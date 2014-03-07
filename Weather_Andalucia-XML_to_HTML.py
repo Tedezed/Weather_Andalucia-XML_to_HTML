@@ -11,14 +11,15 @@ list_centmax = []
 list_vspeed = []
 list_vdirec = []
 
-fil= open('Plantilla.html','r')
+fil = open('Plantilla.html','r')
 html = ''
 for linea in fil:
 	html = html + linea
 Plantilla = Template(html)
 
 while ncapital <= 7:
-	url = urllib2.urlopen('http://api.openweathermap.org/data/2.5/weather?q=%s&mode=xml&units=metric&lang=es' %capital[ncapital])
+	url = urllib2.urlopen('http://api.openweathermap.org/data/2.5/weather?q=%s&mode=xml&units=metric&lang=es' 
+		%capital[ncapital])
 	raiz = etree.parse(url)
 		
 	cent = raiz.find('temperature').attrib['min']
@@ -50,7 +51,8 @@ while ncapital <= 7:
 
 	ncapital = ncapital + 1
 
-Plantilla_sal = Plantilla.render(capitalh=capital,centh=list_cent,centmaxh=list_centmax,vspeedh=list_vspeed,vdirech=list_vdirec)
+Plantilla_sal = Plantilla.render(capitalh=capital,centh=list_cent,centmaxh=list_centmax,
+	vspeedh=list_vspeed,vdirech=list_vdirec)
 archi=open('Plantilla_sal.html','w')
 archi.write(Plantilla_sal)
 archi.close()
